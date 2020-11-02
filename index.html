@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Quotes</title>
+
+    
+</head>
+<script>
+    var colors = [" rgb(70, 158, 85)", " rgb(189, 189, 31)", " rgb(79, 126, 196)", " rgb(182, 57, 88)", "black", "white"];
+    function green() {
+        var col = document.getElementById("container");
+        col.style.backgroundColor = colors[0];
+        col.style.webkitTextFillColor = colors[4];
+        col.style.borderColor = colors[1];
+    }
+        function yellow() {
+        var col = document.getElementById("container");
+        col.style.backgroundColor = colors[1];
+        col.style.webkitTextFillColor = colors[3];
+        col.style.borderColor = colors[0];
+    }
+        
+        function blue() {
+        var col = document.getElementById("container");
+        col.style.backgroundColor = colors[2];
+        col.style.webkitTextFillColor = colors[1];
+        col.style.borderColor = colors[0];
+    }
+        
+        function pink() {
+        var col = document.getElementById("container");
+        col.style.backgroundColor = colors[3];
+        col.style.webkitTextFillColor = colors[5];
+        col.style.borderColor = colors[5];
+    }
+    
+   
+
+
+</script>
+
+<body>
+
+
+    <div class="container"; id="container">
+        
+        
+        <div class="main">
+           
+            <script>
+            function quotes()
+                {
+                    var q =[
+                        " The purpose of our lives is to be happy. " ,
+                        " Life is what happens when you’re busy making other plans.",
+                        "Get busy living or get busy dying.",
+                        "You only live once, but if you do it right, once is enough.",
+                        "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
+                        "If you want to live a happy life, tie it to a goal, not to people or things.",
+                        "Never let the fear of striking out keep you from playing the game.",
+                        "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.",
+                        "If life were predictable it would cease to be life, and be without flavor.",
+                        "The whole secret of a successful life is to find out what is one’s destiny to do, and then do it."
+
+
+                    ];
+                    var Pick = Math.floor(Math.random() * (q.length));
+                    document.write(q[Pick]);
+                }
+                document.addEventListener("load", quotes());
+            </script>
+        </div>
+    </div>
+    <button onclick="green();"; class="green"></button>
+    <button onclick="yellow();"; class="yellow"></button>
+    <button onclick="blue();"; class="blue"></button>
+    <button onclick="pink();"; class="pink"></button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+    <h1>CONVERT</h1>
+    
+    <input type="number" min="0" name="lb" id="in_lb">
+            <select id="state" >
+            <option value="kg_to_lb">kg to lb</option>
+            <option value="lb_to_kg">lb to kg</option>
+            </select>
+   
+        <input type="button" value="convert" id="submit" onclick="change()"><strong> <output id="demo1"></output></strong>
+        </div> 
+    </div> 
+   
+    <script>
+       
+       function change()
+{
+    var y=document.getElementById('state').value;
+ console.log(y);
+    if(y=="lb_to_kg")
+    {
+    var x=document.getElementById("in_lb").value;
+    var num;
+    num = x*0.4536;
+    document.getElementById("demo1").innerHTML=num+" kilograms";
+    }
+    else if(y=="kg_to_lb")
+    {
+        var x=document.getElementById("in_lb").value;
+        var num;
+        num = x*2.2046;
+        document.getElementById("demo1").innerHTML=num+" pounds";
+    }
+
+}
+    
+        </script>
+         <br />
+         <br />
+         <br />
+         <br />
+         <div class="container">
+            <table width="50%" border="0" align="center">
+                <tr>
+                  <td width="13%">Input Series of Number:</td>
+                  <td width="29%"><input name="box1" type="text" id="box1" value="12,12,22,9,1,20" /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Max :</td>
+                  <td><div id="max"> </div></td>
+                </tr>
+                <tr>
+                  <td>Min :</td>
+                  <td><div id="min"> </div></td>
+                </tr>
+                <tr>
+                  <td>Sum  :</td>
+                  <td><div id="sum"> </div></td>
+                </tr>
+                <tr>
+                  <td>Average :</td>
+                  <td><div id="avg"> </div></td>
+                </tr>
+                <tr>
+                  <td>Reverse Order :</td>
+                  <td><div id="reverse"> </div></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td></td>
+                </tr>
+              </table>
+          <button onclick="calculate()">calculate</button>
+         </div>
+         <script>
+             function calculate() {
+  var values = document.getElementById('box1').value.split(/,/g);
+  var sum = values.reduce(function(a, b) { return parseInt(a) + parseInt(b); });
+  document.querySelector('#max').innerHTML = values.max();
+  document.querySelector('#min').innerHTML = values.min();
+  document.querySelector('#sum').innerHTML = sum;
+  document.querySelector('#avg').innerHTML = sum / values.length;
+  document.querySelector('#reverse').innerHTML = values.reverse().join(',');
+}
+
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function() {
+  return Math.min.apply(null, this);
+};
+         </script>
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+  <h1>MAGIC!</h1>
+
+  <textarea class="mywidth" id="Input"></textarea>
+  <br />
+  <button onclick="document.getElementById('Input').value = ''">Clear It</button>
+  <button onclick="clickCounter()">Capitalize</button>
+  
+  <button onclick="remove()">Strip Blank</button>
+</div> 
+<script>
+  function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    
+  }
+   
+    if((localStorage.clickcount%2)==0){
+    document.getElementById("Input").style.textTransform = "uppercase";
+    
+    }
+    else
+    {
+      document.getElementById("Input").style.textTransform = "lowercase";
+    }
+  }
+  </script>
+ 
+  <script>
+    function remove() 
+    {
+	      var str= document.getElementById("Input").value;
+       
+       document.getElementById("Input").value =str.replace(/\s+/g, " ") ;
+
+        
+
+    }
+    
+  </script>
+</body>
+
+</html>
